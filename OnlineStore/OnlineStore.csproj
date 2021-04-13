@@ -101,5 +101,23 @@
   <ItemGroup>
     <Resource Include="defenderReborn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="iphone123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="razer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="iPhone12ProMax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="evo8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mEvo8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hpPavilion.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
