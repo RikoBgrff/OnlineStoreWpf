@@ -1,6 +1,8 @@
-﻿using OnlineStore.Models;
+﻿using Microsoft.Win32;
+using OnlineStore.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,10 +102,31 @@ NVIDIA® GeForce® GTX 1660 Ti
 
 
             var obj = ProductListBox.SelectedItem;
-            
+
 
             //  var obj = ProductListBox.SelectedItem as ;
             //  MessageBox.Show(obj.Name);
+        }
+
+        private void ProductListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var product = ProductListBox.SelectedItem as Product;
+            nameTxtBx.Text = product.Name;
+            descriptionTxtBx.Text = product.Description;
+            priceTxtBx.Text = product.Price;
+            ImagePathTxtBx.Text = product.ImagePath;
+            ProductImage.Source = new BitmapImage(new Uri($@"{product.ImagePath}", UriKind.Relative));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Product product = new Product() { 
+                Name= nameTxtBx.Text,
+                Price = priceTxtBx.Text,
+                Description = descriptionTxtBx.Text,
+                ImagePath= ImagePathTxtBx.Text
+            };
+            Products.Add(product);
         }
     }
 }

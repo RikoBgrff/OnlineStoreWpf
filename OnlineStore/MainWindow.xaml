@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnlineStore"
         mc:Ignorable="d"
-        Title="Store" Height="450" Width="800" Icon="storee.png">
+        Title="Store" Height="900" Width="1000" Icon="storee.png" WindowStartupLocation="CenterScreen" MaxHeight="1000" MaxWidth="1000" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
 
             <ColumnDefinition Width="7*"></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="ProductListBox" Grid.Column="0" Background="#9B59B6">
+        <ListBox x:Name="ProductListBox" Grid.Column="0" Background="#9B59B6" SelectionChanged="ProductListBox_SelectionChanged" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -24,8 +24,6 @@
                         <Canvas Grid.Column="1">
                             <TextBlock Width="300" Canvas.Left="80" Canvas.Top="50" FontSize="16" Foreground="White" Text="{Binding Name}"></TextBlock>
                             <TextBlock Width="300" Canvas.Left="80" Canvas.Top="80" FontSize="16" Foreground="White" Text="{Binding Price}"></TextBlock>
-                            <Button Grid.Column="0" Canvas.Left="80" Canvas.Top="120" Width="50" Height="40" Foreground="White" Content="EDIT" Click="Button_Click" Style="{StaticResource RoundCorner}"
-                               ></Button>
                         </Canvas>
                         <StackPanel Name="stackPanel2" Grid.Column="2">
                             <Image Name="selectedImage" Grid.Column="0" Height="150" Width="150"></Image>
@@ -38,33 +36,35 @@
             </ListBox.ItemTemplate>
 
         </ListBox>
-        <!--<Grid Grid.Column="0" Background="#9B59B6">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="2*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Button Style="{StaticResource RoundCorner}" Grid.Row="0" Content="Add Product" FontSize="18" FontWeight="Light" Foreground="White" />
-            <Button Style="{StaticResource RoundCorner}" Grid.Row="1" Content="Settings" FontSize="18" FontWeight="Light" Foreground="White" />
-        </Grid>-->
-        <Grid Grid.Column="1" Background="#9B59B6">
+        <Grid Grid.Column="1" Background="#9B59B6" RenderTransformOrigin="0.329,0.509">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="10*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Style="{StaticResource RoundCorner}" Margin="5,5,5,0" Grid.Row="0" Content="Add Product" FontSize="18"  Foreground="White" />
-            <StackPanel Grid.Row="1" >
-                <TextBlock  Style="{StaticResource textblockstyle}" Text="ImagePath:"></TextBlock>
-                <TextBox Height="31"/>
-                <Button Margin="0,0,204,0" Content="Open" />
-                <TextBlock  Style="{StaticResource textblockstyle}" Text="Name:"></TextBlock>
-                <TextBox Name="nameTxtBx" Height="33"></TextBox>
-                <TextBlock  Style="{StaticResource textblockstyle}" Text="Price:"></TextBlock>
-                <TextBox Name="priceTxtBx" Height="32"></TextBox>
-                <TextBlock  Style="{StaticResource textblockstyle}" Text="Description:"></TextBlock>
-                <TextBox x:Name="descriptionTxtBx" Height="34"></TextBox>
-                <Button Style="{StaticResource RoundCorner}" Foreground="White" Content="Save"/>
-                <Button Style="{StaticResource RoundCorner}" Foreground="White" Content="Ignore"/>
-            </StackPanel>
+            <Button Style="{StaticResource RoundCorner}" Margin="5,5,5,0" Grid.Row="0" Content="Add Product" FontSize="18"  Foreground="White" Click="Button_Click_1"/>
+
+
+            <Canvas Grid.Row="1" >
+                <Image Source="noPhoto.png" Name="ProductImage" Height="140" Width="120" Canvas.Top="10" Canvas.Left="10"></Image>
+                <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="LightGray" SnapsToDevicePixels="True" Background="White" Canvas.Left="148" Canvas.Top="78">
+                    <TextBox x:Name="ImagePathTxtBx" BorderThickness="0" Background="Transparent" Canvas.Left="38" Height="20" Canvas.Top="405" Width="115"/>
+                </Border>
+                <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="LightGray" SnapsToDevicePixels="True" Background="White" Canvas.Left="10" Canvas.Top="188" Width="265" Height="31">
+                    <TextBox x:Name="nameTxtBx" Canvas.Left="192" Canvas.Top="297" Background="Transparent" BorderThickness="0" Margin="4,0"/>
+                </Border>
+                <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="LightGray" SnapsToDevicePixels="True" Background="White" Canvas.Left="10" Canvas.Top="275" Width="168" Height="30">
+                    <TextBox x:Name="priceTxtBx" Canvas.Left="51" Canvas.Top="312" Background="Transparent" BorderThickness="0" Margin="4,0" />
+                </Border>
+                <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="LightGray" SnapsToDevicePixels="True" Background="White"  Canvas.Top="365" Width="168" Canvas.Left="10" Height="120">
+                    <TextBox x:Name="descriptionTxtBx" TextWrapping="Wrap" Canvas.Left="150" Canvas.Top="224" Background="Transparent" BorderThickness="0" Margin="0,4"/>
+                </Border>
+                <TextBlock  Style="{StaticResource textblockstyle}" Text="ImagePath:" FontSize="25" Canvas.Left="150" Canvas.Top="40" Width="128"/>
+                <TextBlock  Style="{StaticResource textblockstyle}" Text="Name:" FontSize="25" Canvas.Left="10" Canvas.Top="150"/>
+                <TextBlock  Style="{StaticResource textblockstyle}" Text="Price:" FontSize="25" Canvas.Left="10" Canvas.Top="237"/>
+                <TextBlock  Style="{StaticResource textblockstyle}" Text="Description:" FontSize="25" Canvas.Left="10" Canvas.Top="327"/>
+                <Button Style="{StaticResource RoundCorner}" FontSize="26" Foreground="White" Content="Save" Canvas.Left="10" Canvas.Top="523" Height="52" Width="120"/>
+                <Button Style="{StaticResource RoundCorner}" FontSize="26" Foreground="White" Content="Ignore" Canvas.Left="150" Canvas.Top="523" Height="52" Width="125"/>
+            </Canvas>
         </Grid>
     </Grid>
 </Window>

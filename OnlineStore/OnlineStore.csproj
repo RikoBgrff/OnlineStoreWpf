@@ -119,5 +119,8 @@
   <ItemGroup>
     <Resource Include="hpPavilion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="noPhoto.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
