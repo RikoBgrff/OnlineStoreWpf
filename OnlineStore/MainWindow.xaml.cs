@@ -88,6 +88,17 @@ NVIDIA® GeForce® GTX 1660 Ti
                 Price="2700 AZN",
                 ImagePath = "hpPavilion.png"
             },
+                        new Product
+            {
+                Name = "Razer DeathAdder Chroma",
+                Description = $@"Master Acceleration lets you assign the same sensitivity for both the X and Y axis.
+Master Sensitivity Control allows for fine-tuning of specific X and Y axis sensitivity.
+You can set macros to reflect the majority of keyboard keys except for the Windows keys and enhanced function keys.
+Mouse button presses are not programmable to macros.",
+                Price=" 120 AZN",
+                ImagePath = "razer.png"
+            },
+
         };
         public MainWindow()
         {
