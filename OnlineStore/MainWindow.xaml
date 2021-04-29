@@ -8,37 +8,25 @@
         Title="Store" Height="450" Width="800" Icon="storee.png">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"></ColumnDefinition>
+
+            <ColumnDefinition Width="7*"></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="ProductListLb" Grid.Column="0" Grid.ColumnSpan="2">
-            <ListBox.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="#fc4a1a" Offset="0"></GradientStop>
-                    <GradientStop Color="#f7b733" Offset="1"></GradientStop>
-                </LinearGradientBrush>
-            </ListBox.Background>
+        <ListBox x:Name="ProductListBox" Grid.Column="0" Background="#9B59B6">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="8*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0" Height="150" Width="150" Source="{Binding ImagePath}"></Image>
-                        <StackPanel Grid.Column="1">
-                            <TextBlock Width="600" FontSize="16" Foreground="White" Text="{Binding Name}"></TextBlock>
-                            <TextBlock Width="600" FontSize="16" Foreground="White" Text="{Binding Price}"></TextBlock>
-                            <Button Grid.Column="0" 
-                               Margin="10" 
-                               Width="35"
-                               Height="20" 
-                               Content="Edit"
-                               Click="Button_Click"
-                               Style="{DynamicResource RoundButtonTemplate}"
+                        <Canvas Grid.Column="1">
+                            <TextBlock Width="300" Canvas.Left="80" Canvas.Top="50" FontSize="16" Foreground="White" Text="{Binding Name}"></TextBlock>
+                            <TextBlock Width="300" Canvas.Left="80" Canvas.Top="80" FontSize="16" Foreground="White" Text="{Binding Price}"></TextBlock>
+                            <Button Grid.Column="0" Canvas.Left="80" Canvas.Top="120" Width="50" Height="40" Foreground="White" Content="EDIT" Click="Button_Click" Style="{StaticResource RoundCorner}"
                                ></Button>
-                        </StackPanel>
+                        </Canvas>
                         <StackPanel Name="stackPanel2" Grid.Column="2">
                             <Image Name="selectedImage" Grid.Column="0" Height="150" Width="150"></Image>
                             <TextBlock x:Name="NameTB"></TextBlock>
@@ -50,5 +38,33 @@
             </ListBox.ItemTemplate>
 
         </ListBox>
+        <!--<Grid Grid.Column="0" Background="#9B59B6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Style="{StaticResource RoundCorner}" Grid.Row="0" Content="Add Product" FontSize="18" FontWeight="Light" Foreground="White" />
+            <Button Style="{StaticResource RoundCorner}" Grid.Row="1" Content="Settings" FontSize="18" FontWeight="Light" Foreground="White" />
+        </Grid>-->
+        <Grid Grid.Column="1" Background="#9B59B6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Style="{StaticResource RoundCorner}" Margin="5,5,5,0" Grid.Row="0" Content="Add Product" FontSize="18"  Foreground="White" />
+            <StackPanel Grid.Row="1" >
+                <TextBlock  Style="{StaticResource textblockstyle}" Text="ImagePath:"></TextBlock>
+                <TextBox Height="31"/>
+                <Button Margin="0,0,204,0" Content="Open" />
+                <TextBlock  Style="{StaticResource textblockstyle}" Text="Name:"></TextBlock>
+                <TextBox Name="nameTxtBx" Height="33"></TextBox>
+                <TextBlock  Style="{StaticResource textblockstyle}" Text="Price:"></TextBlock>
+                <TextBox Name="priceTxtBx" Height="32"></TextBox>
+                <TextBlock  Style="{StaticResource textblockstyle}" Text="Description:"></TextBlock>
+                <TextBox x:Name="descriptionTxtBx" Height="34"></TextBox>
+                <Button Style="{StaticResource RoundCorner}" Foreground="White" Content="Save"/>
+                <Button Style="{StaticResource RoundCorner}" Foreground="White" Content="Ignore"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

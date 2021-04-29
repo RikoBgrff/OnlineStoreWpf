@@ -92,12 +92,18 @@ NVIDIA® GeForce® GTX 1660 Ti
         public MainWindow()
         {
             InitializeComponent();
-            ProductListLb.ItemsSource = Products;
+            ProductListBox.ItemsSource = Products;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
+
+
+            var obj = ProductListBox.SelectedItem;
+            
+
+            //  var obj = ProductListBox.SelectedItem as ;
+            //  MessageBox.Show(obj.Name);
         }
     }
 }
